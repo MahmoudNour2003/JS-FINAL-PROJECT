@@ -1,0 +1,52 @@
+body { 
+  font-family: Arial, sans-serif; 
+  margin: 0; 
+  padding: 0; }
+header {
+   background-color: #007BFF; 
+   color: white; padding: 20px; 
+   display: flex; 
+   justify-content: space-between; 
+   align-items: center; }
+nav button { 
+  margin: 0 5px; 
+  padding: 10px 20px; 
+  cursor: pointer; }
+main { 
+  padding: 20px; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+th {
+    cursor: pointer; /* Indicate sortable columns */
+    background-color: #f0f0f0;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+}
+input, select, button {
+    padding: 8px;
+    font-size: 1rem;
+}
+.hidden {
+    display: none;
+}
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

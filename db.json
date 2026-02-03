@@ -1,0 +1,74 @@
+{
+  "students": [
+    {
+      "id": "2",
+      "name": "Mahmoud Reda Hassan Muhammed",
+      "email": "nourr3775@gmail.com",
+      "age": "25",
+      "phoneNumber": "01024699583"
+    },
+    {
+      "id": "3",
+      "name": "Omar Hassan",
+      "email": "omar@student.com",
+      "age": 21,
+      "phoneNumber": "012070599360"
+    },
+    {
+      "id": "56dd",
+      "name": "Mahmoud nour",
+      "email": "nourr3225@gmail.com",
+      "age": "21",
+      "phoneNumber": "01554558705"
+    },
+    {
+      "id": "37ac",
+      "name": "Mahmoud Reda Hassan",
+      "email": "nourr3@gmail.com",
+      "age": "23",
+      "phoneNumber": "01554558705"
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "name": "JavaScript Advanced",
+      "duration": "3 Months",
+      "instructorId": 1
+    },
+    {
+      "id": "2",
+      "name": "Web Development",
+      "duration": "4 Months",
+      "instructorId": 2
+    }
+  ],
+  "instructors": [
+    {
+      "id": "1",
+      "name": "Mohamed Salah",
+      "email": "mohamed@academy.com",
+      "specialization": "JavaScript"
+    },
+    {
+      "id": "2",
+      "name": "Laila Ahmed",
+      "email": "laila@academy.com",
+      "specialization": "Frontend"
+    }
+  ],
+  "employees": [
+    {
+      "id": "1",
+      "name": "Hany Mostafa",
+      "email": "hany@affairs.com",
+      "position": "Student Affairs Officer"
+    },
+    {
+      "id": "2",
+      "name": "Nour Adel",
+      "email": "nour@affairs.com",
+      "position": "Administrator"
+    }
+  ]
+}

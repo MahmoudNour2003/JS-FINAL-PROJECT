@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Affairs System</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <header>
+        <h1>Students Affairs System</h1>
+        <nav>
+            <button id="studentsBtn">Students</button>
+            <button id="coursesBtn">Courses</button>
+            <button id="instructorsBtn">Instructors</button>
+            <button id="employeesBtn">Employees</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tableSection">
+            <div class="table-controls">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="addNewBtn">Add New</button>
+            </div>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                     
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button id="prevPage">Previous</button>
+                <span id="pageInfo">Page 1</span>
+                <button id="nextPage">Next</button>
+            </div>
+        </section>
+
+        <section id="formSection" class="hidden">
+            <form id="recordForm">
+                <button type="submit">Save</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
