@@ -1,74 +1,285 @@
 {
   "students": [
     {
-      "id": "2",
       "name": "Mahmoud Reda Hassan Muhammed",
-      "email": "nourr3775@gmail.com",
-      "age": "25",
-      "phoneNumber": "01024699583"
+      "email": "nejikop829@roastic.com",
+      "age": "28",
+      "phoneNumber": "01024699583",
+      "id": 1
     },
     {
-      "id": "3",
+      "id": 2,
       "name": "Omar Hassan",
       "email": "omar@student.com",
-      "age": 21,
+      "age": "21",
       "phoneNumber": "012070599360"
     },
     {
-      "id": "56dd",
-      "name": "Mahmoud nour",
+      "id": 3,
+      "name": "Mahmoud Nour",
       "email": "nourr3225@gmail.com",
       "age": "21",
       "phoneNumber": "01554558705"
     },
     {
-      "id": "37ac",
+      "id": 4,
       "name": "Mahmoud Reda Hassan",
       "email": "nourr3@gmail.com",
       "age": "23",
       "phoneNumber": "01554558705"
+    },
+    {
+      "id": 5,
+      "name": "Ahmed Ali",
+      "email": "ahmed.ali@student.com",
+      "age": "22",
+      "phoneNumber": "01012345678"
+    },
+    {
+      "id": 6,
+      "name": "Fatima Mohamed",
+      "email": "fatima.m@student.com",
+      "age": "20",
+      "phoneNumber": "01123456789"
+    },
+    {
+      "id": 7,
+      "name": "Sara Ibrahim",
+      "email": "sara.ibrahim@student.com",
+      "age": "24",
+      "phoneNumber": "01234567890"
+    },
+    {
+      "id": 8,
+      "name": "Youssef Ahmed",
+      "email": "youssef.ahmed@student.com",
+      "age": "23",
+      "phoneNumber": "01098765432"
+    },
+    {
+      "id": 9,
+      "name": "Nour Hassan",
+      "email": "nour.hassan@student.com",
+      "age": "22",
+      "phoneNumber": "01187654321"
+    },
+    {
+      "id": 10,
+      "name": "Mariam Said",
+      "email": "mariam.said@student.com",
+      "age": "21",
+      "phoneNumber": "01276543210"
+    },
+    {
+      "id": 11,
+      "name": "Karim Mostafa",
+      "email": "karim.mostafa@student.com",
+      "age": "25",
+      "phoneNumber": "01156789012"
+    },
+    {
+      "id": 12,
+      "name": "Layla Mohamed",
+      "email": "layla.mohamed@student.com",
+      "age": "20",
+      "phoneNumber": "01267890123"
+    },
+    {
+      "id": 13,
+      "name": "Hassan Ali",
+      "email": "hassan.ali@student.com",
+      "age": "24",
+      "phoneNumber": "01178901234"
+    },
+    {
+      "id": 14,
+      "name": "Amira Ibrahim",
+      "email": "amira.ibrahim@student.com",
+      "age": "22",
+      "phoneNumber": "01089012345"
+    },
+    {
+      "id": 15,
+      "name": "Omar Salah",
+      "email": "omar.salah@student.com",
+      "age": "23",
+      "phoneNumber": "01190123456"
+    },
+    {
+      "name": "mahmoud abdelkader",
+      "email": "mahmoud.3bd2lkader@gmail.com",
+      "age": "77",
+      "phoneNumber": "01554360310",
+      "id": 16
+    },
+    {
+      "name": "mahmoud abdelkader",
+      "email": "nourr3775@gmail.com",
+      "age": "56",
+      "phoneNumber": "01554360310",
+      "id": 17
     }
   ],
   "courses": [
     {
-      "id": "1",
+      "name": "JavaScript Fundamentals",
+      "duration": "3 Months",
+      "instructorId": "1",
+      "id": 1
+    },
+    {
+      "id": 2,
       "name": "JavaScript Advanced",
       "duration": "3 Months",
       "instructorId": 1
     },
     {
-      "id": "2",
-      "name": "Web Development",
+      "id": 3,
+      "name": "Web Development Basics",
+      "duration": "2 Months",
+      "instructorId": 2
+    },
+    {
+      "id": 4,
+      "name": "Frontend Development",
       "duration": "4 Months",
       "instructorId": 2
+    },
+    {
+      "name": "React JS",
+      "duration": "2 Months",
+      "instructorId": "3",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Node.js Backend",
+      "duration": "3 Months",
+      "instructorId": 1
+    },
+    {
+      "id": 7,
+      "name": "Database Design",
+      "duration": "2 Months",
+      "instructorId": 4
+    },
+    {
+      "id": 8,
+      "name": "HTML & CSS Mastery",
+      "duration": "1 Month",
+      "instructorId": 2
+    },
+    {
+      "id": 9,
+      "name": "Python Programming",
+      "duration": "3 Months",
+      "instructorId": 5
+    },
+    {
+      "id": 10,
+      "name": "Mobile App Development",
+      "duration": "4 Months",
+      "instructorId": 3
     }
   ],
   "instructors": [
     {
-      "id": "1",
       "name": "Mohamed Salah",
-      "email": "mohamed@academy.com",
-      "specialization": "JavaScript"
+      "email": "mohamed.salah@academy.com",
+      "specialization": "JavaScript & Node.js",
+      "id": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Laila Ahmed",
-      "email": "laila@academy.com",
-      "specialization": "Frontend"
+      "email": "laila.ahmed@academy.com",
+      "specialization": "Frontend Development"
+    },
+    {
+      "name": "Ahmed Hassan",
+      "email": "ahmed.hassan@academy.com",
+      "specialization": "Mobile Development",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "Fatima Ali",
+      "email": "fatima.ali@academy.com",
+      "specialization": "Database & Backend"
+    },
+    {
+      "id": 5,
+      "name": "Youssef Ibrahim",
+      "email": "youssef.ibrahim@academy.com",
+      "specialization": "Python & Data Science"
+    },
+    {
+      "id": 6,
+      "name": "Sara Mohamed",
+      "email": "sara.mohamed@academy.com",
+      "specialization": "UI/UX Design"
+    },
+    {
+      "id": 7,
+      "name": "Omar Khalil",
+      "email": "omar.khalil@academy.com",
+      "specialization": "DevOps & Cloud"
+    },
+    {
+      "id": 8,
+      "name": "Nour Adel",
+      "email": "nour.adel@academy.com",
+      "specialization": "Cybersecurity"
     }
   ],
   "employees": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Hany Mostafa",
-      "email": "hany@affairs.com",
+      "email": "hany.mostafa@affairs.com",
       "position": "Student Affairs Officer"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Nour Adel",
-      "email": "nour@affairs.com",
+      "email": "nour.adel@affairs.com",
       "position": "Administrator"
+    },
+    {
+      "id": 3,
+      "name": "Amira Hassan",
+      "email": "amira.hassan@affairs.com",
+      "position": "Registrar"
+    },
+    {
+      "id": 4,
+      "name": "Karim Said",
+      "email": "karim.said@affairs.com",
+      "position": "IT Support"
+    },
+    {
+      "id": 5,
+      "name": "Layla Ahmed",
+      "email": "layla.ahmed@affairs.com",
+      "position": "Academic Advisor"
+    },
+    {
+      "id": 6,
+      "name": "Hassan Omar",
+      "email": "hassan.omar@affairs.com",
+      "position": "Finance Manager"
+    },
+    {
+      "id": 7,
+      "name": "Mariam Khalil",
+      "email": "mariam.khalil@affairs.com",
+      "position": "HR Manager"
+    },
+    {
+      "id": 8,
+      "name": "Ahmed Mahmoud",
+      "email": "ahmed.mahmoud@affairs.com",
+      "position": "Security Officer"
     }
   ]
 }

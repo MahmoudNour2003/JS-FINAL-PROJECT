@@ -1,72 +1,62 @@
-// app.js
-import * as Student from "./student.js";
-import * as UI from "./ui.js";
-import { studentFields } from "./student.js";
-document.addEventListener("DOMContentLoaded", () => {
-    // Load students by default
-    Student.loadStudents();
+// app.js - Main Application Entry Point
+import Student from "./student.js";
+import Course from "./course.js";
+import Instructor from "./instructor.js";
+import Employee from "./employee.js";
+import DataTableController from "./dataTableController.js";
 
-    // Add New button
-    document.getElementById("addNewBtn").addEventListener("click", () => {
-    UI.renderForm({}, studentFields);   
-    UI.showForm();
-    });
-
-
-    // Cancel button
-    document.addEventListener("click", (e) => {
-    if (e.target.id === "cancelBtn") {
-        UI.hideForm();
-    }
-    });
-
-    const form = document.getElementById("recordForm");
-    // Submit form
-    form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = Object.fromEntries(new FormData(form).entries());
-
-    if (formData.id) {
-        await Student.editStudent(formData.id, formData);
-    } else {
-        await Student.addStudent(formData);
+// Application Class
+class Application {
+    constructor() {
+        this.currentController = null;
+        this.currentEntity = null;
     }
 
-    UI.hideForm();
-
-    });
-
-
-
-    // Table action buttons (Edit/Delete)
-    document.getElementById("dataTable").addEventListener("click", async (e) => {
-     const id = e.target.dataset.id; 
-
-    // ----- EDIT -----
-    if (e.target.classList.contains("editBtn")) {
-        const students = await Student.loadStudents();
-        const student = students.find(s => s.id == id);
-
-        UI.renderForm(student, studentFields);
-        UI.showForm();
+    // Initialize the application
+    init() {
+        this.setupNavigationListeners();
+        this.loadStudents(); // Load students by default
     }
 
-    // ----- DELETE -----
-    if (e.target.classList.contains("deleteBtn")) {
-        if (!id) return;
+    // Setup navigation button listeners
+    setupNavigationListeners() {
+        const navButtons = {
+            studentsBtn: Student,
+            // Add other entities here when ready:
+            coursesBtn: Course,
+            instructorsBtn: Instructor,
+            employeesBtn: Employee
+        };
 
-        // Optional confirmation
-        if (!confirm("Are you sure you want to delete this student?")) return;
-
-        await fetch(`http://localhost:3000/students/${id}`, {
-            method: "DELETE"
+        Object.keys(navButtons).forEach(btnId => {
+            const button = document.getElementById(btnId);
+            if (button) {
+                button.addEventListener("click", () => {
+                    this.loadEntity(navButtons[btnId]);
+                });
+            }
         });
-
-        // Refresh table after deletion
-        await Student.loadStudents(); 
     }
-    });
 
+    // Load entity data
+    async loadEntity(EntityClass) {
+        this.currentEntity = EntityClass;
+        
+        // Create new controller for this entity
+        this.currentController = new DataTableController(EntityClass);
+        
+        // Initialize and load data
+        await this.currentController.init();
+    }
 
+    // Load students (default view)
+    async loadStudents() {
+        await this.loadEntity(Student);
+    }
+}
+
+// Initialize application when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+    const app = new Application();
+    app.init();
 });

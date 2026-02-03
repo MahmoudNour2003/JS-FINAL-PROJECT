@@ -1,30 +1,25 @@
-// student.js - Student Entity Class
-export default class Student {
+// employee.js - Employee Entity Class
+export default class Employee {
     constructor(data = {}) {
         this.id = data.id || null;
         this.name = data.name || "";
         this.email = data.email || "";
-        this.age = data.age || "";
-        this.phoneNumber = data.phoneNumber || "";
+        this.position = data.position || "";
     }
 
-    // Get fields for form rendering
     static getFields() {
-        return ["name", "email", "age", "phoneNumber"];
+        return ["name", "email", "position"];
     }
 
-    // Get entity name for API calls
     static getEntity() {
-        return "students";
+        return "employees";
     }
 
-    // Convert to plain object for API
     toJSON() {
         const obj = {
             name: this.name,
             email: this.email,
-            age: this.age,
-            phoneNumber: this.phoneNumber
+            position: this.position
         };
         
         // Only include id if it's a valid number (for updates)
@@ -35,12 +30,10 @@ export default class Student {
         return obj;
     }
 
-    // Create instance from API response
     static fromJSON(data) {
-        return new Student(data);
+        return new Employee(data);
     }
 
-    // Validate student data
     validate() {
         const errors = [];
         
@@ -54,12 +47,8 @@ export default class Student {
             errors.push("Email is not valid");
         }
         
-        if (!this.age || isNaN(this.age) || this.age <= 0) {
-            errors.push("Age must be a valid number");
-        }
-        
-        if (!this.phoneNumber || this.phoneNumber.trim() === "") {
-            errors.push("Phone number is required");
+        if (!this.position || this.position.trim() === "") {
+            errors.push("Position is required");
         }
         
         return {
