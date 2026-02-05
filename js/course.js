@@ -45,8 +45,8 @@ export default class Course {
             errors.push("Duration is required");
         }
         
-        if (!this.instructorId) {
-            errors.push("Instructor is required");
+        if (!this.instructorId || this.instructorId === "" || isNaN(this.instructorId)) {
+            errors.push("Valid Instructor ID is required");
         }
         
         return {

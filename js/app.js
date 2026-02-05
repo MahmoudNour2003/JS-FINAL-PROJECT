@@ -15,14 +15,24 @@ class Application {
     // Initialize the application
     init() {
         this.setupNavigationListeners();
+        this.setupTitleClickListener();
         this.loadStudents(); // Load students by default
+    }
+
+    // Setup title click to go to home page
+    setupTitleClickListener() {
+        const title = document.getElementById("mainTitle");
+        if (title) {
+            title.addEventListener("click", () => {
+                window.location.href = "home.html";
+            });
+        }
     }
 
     // Setup navigation button listeners
     setupNavigationListeners() {
         const navButtons = {
             studentsBtn: Student,
-            // Add other entities here when ready:
             coursesBtn: Course,
             instructorsBtn: Instructor,
             employeesBtn: Employee
@@ -41,6 +51,11 @@ class Application {
     // Load entity data
     async loadEntity(EntityClass) {
         this.currentEntity = EntityClass;
+        
+        // Cleanup old controller if exists
+        if (this.currentController) {
+            this.currentController.cleanup();
+        }
         
         // Create new controller for this entity
         this.currentController = new DataTableController(EntityClass);

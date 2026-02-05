@@ -16,46 +16,90 @@ export default class DataTableController {
         this.searchQuery = "";
         this.totalRecords = 0;
         
+        // Store bound event handlers for cleanup
+        this.boundHandlers = {
+            addNew: null,
+            search: null,
+            prevPage: null,
+            nextPage: null,
+            tableClick: null,
+            formSubmit: null,
+            cancelClick: null
+        };
+        
         this.initializeEventListeners();
     }
 
     // Initialize all event listeners
     initializeEventListeners() {
         // Add New button
-        document.getElementById("addNewBtn").addEventListener("click", () => {
-            this.handleAddNew();
-        });
+        this.boundHandlers.addNew = () => this.handleAddNew();
+        document.getElementById("addNewBtn").addEventListener("click", this.boundHandlers.addNew);
 
         // Search input
-        document.getElementById("searchInput").addEventListener("input", (e) => {
-            this.handleSearch(e.target.value);
-        });
+        this.boundHandlers.search = (e) => this.handleSearch(e.target.value);
+        document.getElementById("searchInput").addEventListener("input", this.boundHandlers.search);
 
         // Pagination buttons
-        document.getElementById("prevPage").addEventListener("click", () => {
-            this.handlePreviousPage();
-        });
+        this.boundHandlers.prevPage = () => this.handlePreviousPage();
+        document.getElementById("prevPage").addEventListener("click", this.boundHandlers.prevPage);
 
-        document.getElementById("nextPage").addEventListener("click", () => {
-            this.handleNextPage();
-        });
+        this.boundHandlers.nextPage = () => this.handleNextPage();
+        document.getElementById("nextPage").addEventListener("click", this.boundHandlers.nextPage);
 
         // Table events (edit, delete, sort)
-        this.ui.table.addEventListener("click", (e) => {
-            this.handleTableClick(e);
-        });
+        this.boundHandlers.tableClick = (e) => this.handleTableClick(e);
+        this.ui.table.addEventListener("click", this.boundHandlers.tableClick);
 
         // Form submit
-        this.ui.form.addEventListener("submit", (e) => {
-            this.handleFormSubmit(e);
-        });
+        this.boundHandlers.formSubmit = (e) => this.handleFormSubmit(e);
+        this.ui.form.addEventListener("submit", this.boundHandlers.formSubmit);
 
         // Cancel button (delegated)
-        document.addEventListener("click", (e) => {
+        this.boundHandlers.cancelClick = (e) => {
             if (e.target.id === "cancelBtn") {
                 this.ui.hideForm();
             }
-        });
+        };
+        document.addEventListener("click", this.boundHandlers.cancelClick);
+    }
+
+    // Cleanup event listeners when switching entities
+    cleanup() {
+        // Remove all event listeners
+        if (this.boundHandlers.addNew) {
+            document.getElementById("addNewBtn").removeEventListener("click", this.boundHandlers.addNew);
+        }
+        if (this.boundHandlers.search) {
+            document.getElementById("searchInput").removeEventListener("input", this.boundHandlers.search);
+        }
+        if (this.boundHandlers.prevPage) {
+            document.getElementById("prevPage").removeEventListener("click", this.boundHandlers.prevPage);
+        }
+        if (this.boundHandlers.nextPage) {
+            document.getElementById("nextPage").removeEventListener("click", this.boundHandlers.nextPage);
+        }
+        if (this.boundHandlers.tableClick) {
+            this.ui.table.removeEventListener("click", this.boundHandlers.tableClick);
+        }
+        if (this.boundHandlers.formSubmit) {
+            this.ui.form.removeEventListener("submit", this.boundHandlers.formSubmit);
+        }
+        if (this.boundHandlers.cancelClick) {
+            document.removeEventListener("click", this.boundHandlers.cancelClick);
+        }
+        
+        // Hide form if it's open
+        this.ui.hideForm();
+        
+        // Clear search input
+        document.getElementById("searchInput").value = "";
+        
+        // Reset state
+        this.currentPage = 1;
+        this.sortColumn = null;
+        this.sortOrder = "asc";
+        this.searchQuery = "";
     }
 
     // Load records from server
